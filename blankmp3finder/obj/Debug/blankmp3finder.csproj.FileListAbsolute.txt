@@ -1,0 +1,12 @@
+C:\git_stuff\mp3finder\blankmp3finder\bin\Debug\blankmp3finder.exe.config
+C:\git_stuff\mp3finder\blankmp3finder\bin\Debug\blankmp3finder.exe
+C:\git_stuff\mp3finder\blankmp3finder\bin\Debug\blankmp3finder.pdb
+C:\git_stuff\mp3finder\blankmp3finder\bin\Debug\taglib-sharp.dll
+C:\git_stuff\mp3finder\blankmp3finder\bin\Debug\taglib-sharp.pdb
+C:\git_stuff\mp3finder\blankmp3finder\bin\Debug\taglib-sharp.xml
+C:\git_stuff\mp3finder\blankmp3finder\obj\Debug\blankmp3finder.csprojResolveAssemblyReference.cache
+C:\git_stuff\mp3finder\blankmp3finder\obj\Debug\blankmp3finder.MainForm.resources
+C:\git_stuff\mp3finder\blankmp3finder\obj\Debug\blankmp3finder.Properties.Resources.resources
+C:\git_stuff\mp3finder\blankmp3finder\obj\Debug\blankmp3finder.csproj.GenerateResource.Cache
+C:\git_stuff\mp3finder\blankmp3finder\obj\Debug\blankmp3finder.exe
+C:\git_stuff\mp3finder\blankmp3finder\obj\Debug\blankmp3finder.pdb

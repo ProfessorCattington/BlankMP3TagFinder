@@ -8,19 +8,12 @@ namespace blankmp3finder
     static class Tools
     {
 
-        public static async Task<List<string>> GetListOfBlankMP3(ProgressBar progressBar, string path)
+        public static List<string> GetListOfBlankMP3(ProgressBar progressBar, string path)
         {
             List<string> blankMP3paths = new List<string>();
             string[] pathsToMP3s = Directory.GetFiles(path, "*.mp3", SearchOption.AllDirectories);
-            progressBar.Maximum = pathsToMP3s.Length;
 
-            await Task.Factory.StartNew(() => CheckForBlankTags(progressBar, ref blankMP3paths, pathsToMP3s));
-
-            return blankMP3paths;
-        }
-
-        private static void CheckForBlankTags(ProgressBar progressBar, ref List<string> blankMP3paths, string[] pathsToMP3s)
-        {
+            progressBar.Invoke((MethodInvoker)(() => progressBar.Maximum = pathsToMP3s.Length));
 
             foreach (string mp3 in pathsToMP3s)
             {
@@ -44,18 +37,12 @@ namespace blankmp3finder
                 progressBar.Invoke((MethodInvoker)(() => progressBar.PerformStep()));
             }
 
+            return blankMP3paths;
         }
 
-        public static async Task AddABlankSpaceToTagsAsync(ProgressBar progressBar, List<string> mp3Paths)
+        public static void AddABlankSpaceToTags(ProgressBar progressBar, List<string> mp3Paths)
         {
-
-            progressBar.Maximum = mp3Paths.Count;
-
-            await Task.Factory.StartNew(() => AddBlankSpace(progressBar, mp3Paths));
-        }
-
-        private static void AddBlankSpace(ProgressBar progressBar, List<string> mp3Paths)
-        {
+            progressBar.Invoke((MethodInvoker)(() => progressBar.Maximum = mp3Paths.Count));
 
             foreach (string mp3 in mp3Paths)
             {
@@ -63,7 +50,7 @@ namespace blankmp3finder
 
                 tagFile.Tag.Comment = " ";
                 tagFile.Save();
-                progressBar.Invoke((MethodInvoker) (() => progressBar.PerformStep()));
+                progressBar.Invoke((MethodInvoker)(() => progressBar.PerformStep()));
             }
         }
     }

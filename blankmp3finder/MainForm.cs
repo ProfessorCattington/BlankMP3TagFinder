@@ -53,7 +53,7 @@ namespace blankmp3finder
             searchButton.Enabled = false;
             browseButton.Enabled = false;
 
-            blankMP3s = await Tools.GetListOfBlankMP3(searchProgress, sourcePathTextBox.Text);
+            blankMP3s = await Task.Factory.StartNew(() => Tools.GetListOfBlankMP3(searchProgress, sourcePathTextBox.Text));
 
             searchButton.Enabled = true;
             browseButton.Enabled = true;
@@ -88,7 +88,7 @@ namespace blankmp3finder
             browseButton.Enabled = false;
             blankButton.Enabled = false;
 
-            await Tools.AddABlankSpaceToTagsAsync(searchProgress, blankMP3s);
+            await Task.Factory.StartNew(() => Tools.AddABlankSpaceToTags(searchProgress, blankMP3s));
 
             searchButton.Enabled = true;
             browseButton.Enabled = true;
